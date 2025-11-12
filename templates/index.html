@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Compass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    .bg {
+      background:  linear-gradient(rgba(90, 255, 241, 0.323), rgba(70, 255, 230, 0.364)), url("{{ url_for('static', filename='ocean.png') }}") center/cover no-repeat;
+    }
+    .circle {
+      background: linear-gradient(rgba(0, 53, 61, 0.809), rgba(0, 0, 0, 0.824)), url("{{ url_for('static', filename='compass.png') }}") center/cover no-repeat;
+    }
+  </style>
+</head>
+<nav class="navbar">
+  <ul>
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('explore') }}">Explore</a></li>
+    <li><a href="{{ url_for('about') }}">About</a></li>
+    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+  </ul>
+</nav>
+<body>
+  <main class="bg">
+    <div class="circle">
+      <h1>CAREER<span class="parisienne">Compass</span></h1>
+      <a href="#recommendation" class="btn">Start Exploring</a>
+    </div>
+  </main>
+
+    <section id="about" class="about-section">
+    <div class="overlay">
+      <h2>About us</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Our Mission</h3>
+          <p>We help you discover the perfect career path by analyzing your unique combination of skills, interests, and education.</p>
+        </div>
+        <div class="about-card">
+          <h3>How It Works</h3>
+          <p>Our intelligent algorithm matches your profile with suitable career paths, providing personalized recommendations.</p>
+        </div>
+        <div class="about-card">
+          <h3>Why Choose Us</h3>
+          <p>Get data-driven career guidance that considers your complete profile and matches you with promising opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recommendation" class="career-section">
+    <h2>Find Your Career Path</h2>
+    <form action="/recommend" method="POST" class="career-form">
+      <label for="skills">Select your skills:</label>
+      <select id="skills" name="skills" multiple>
+        {% for skill in skills %}
+          <option value="{{ skill }}">{{ skill }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="interests">Select your interests:</label>
+      <select id="interests" name="interests" multiple>
+        {% for interest in interests %}
+          <option value="{{ interest }}">{{ interest }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="degree">Select highest level of education:</label>
+      <select id="degree" name="degree">
+        <option value="Bachelor's">Bachelor's</option>
+        <option value="Master's">Master's</option>
+        <option value="PhD">PhD</option>
+      </select>
+
+      <button type="submit" class="btn">Recommend</button>
+    </form>
+  </section>
+
+  <section id="contact" class="contact-banner">
+  <div class="contact-blur"></div>
+  <div class="contact-overlay">
+    <h2>Connect with us</h2>
+    <p>Reach out anytime!</p>
+    <a href="{{ url_for('contact') }}" class="btn">Go to Contact Page</a>
+  </div>
+</section>
+<script>
+  new Choices('#skills', { removeItemButton: true, searchEnabled: true });
+  new Choices('#interests', { removeItemButton: true, searchEnabled: true });
+</script>
+</body>
+</html>
