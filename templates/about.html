@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Career Compass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      min-height: 100vh;
+    }
+
+    .about-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: calc(100vw / 2.5);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .about-content {
+      color: #333;
+      padding: 140px 80px;
+      margin-left: calc(100vw / 2.5);
+      background: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 900px;
+    }
+
+    .about-content h1 {
+      color: #02909d;
+      font-size: 3.2rem;
+      margin-bottom: 50px;
+      line-height: 1.2;
+    }
+
+    .about-content p {
+      margin-bottom: 35px;
+      line-height: 1.9;
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 85%;
+    }
+
+    .highlight {
+      color: #02909d;
+      font-weight: 500;
+    }
+
+    @media (max-width: 1024px) {
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+      }
+
+      .about-content {
+        margin-left: 0;
+        padding: 80px 40px;
+        min-height: auto;
+        max-width: 100%;
+      }
+
+      .about-content h1 {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+      }
+
+      .about-content p {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-image {
+        height: 50vh;
+      }
+
+      .about-content {
+        padding: 60px 25px;
+      }
+
+      .about-content h1 {
+        font-size: 2.4rem;
+        margin-bottom: 30px;
+      }
+
+      .about-content p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('explore') }}">Explore</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="about-container">
+    <div class="about-image">
+      <img src="{{ url_for('static', filename='contact.png') }}" alt="Career Guidance Session">
+    </div>
+    <div class="about-content">
+      <h1>Empowering Your Career Journey</h1>
+      <p>
+        At <span class="highlight">Career Compass</span>, we believe that everyone deserves to find a career path that not only matches their skills but also ignites their passion. Founded in 2023, our platform emerged from a simple yet powerful observation: traditional career guidance often fails to consider the complete picture of an individual's potential.
+      </p>
+      <p>
+        Our innovative approach combines advanced data analytics with personalized career mapping. We analyze your unique combination of skills, educational background, and interests to identify career paths that offer the highest potential for success and satisfaction. Unlike conventional career counseling services, we continuously update our recommendations based on evolving industry trends and emerging opportunities.
+      </p>
+      <p>
+        What sets us apart is our commitment to holistic career development. We don't just match you with a job title; we provide insights into the skills you need to develop, the educational paths you might consider, and the industries where your unique combination of talents could make the most impact. Our recommendations are backed by real-world data and success stories from professionals who have navigated similar career paths.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

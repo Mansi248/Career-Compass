@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    .career-section {
+      padding-top: 120px;  /* Added padding for fixed navbar */
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('explore') }}">Explore</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+  </nav>
+  <section class="career-section">
+    <h2>Explore Career Paths</h2>
+    <div class="career-grid">
+      <a href="https://roadmap.sh/frontend" class="career-card" target="_blank">
+        <h3>Web Development</h3>
+        <p>Create applications and systems that power the digital world.</p>
+        <p>Key Skills: Programming, Problem-solving, Teamwork</p>
+      </a>
+      <a href="https://roadmap.sh/ai-data-scientist" class="career-card" target="_blank">
+        <h3>Data Science</h3>
+        <p>Analyze data to help organizations make better decisions.</p>
+        <p>Key Skills: Statistics, Machine Learning, Python</p>
+      </a>
+      <a href="https://roadmap.sh/ux-design" class="career-card" target="_blank">
+        <h3>UX Design</h3>
+        <p>Design user-friendly interfaces for websites and apps.</p>
+        <p>Key Skills: User Research, Prototyping, Visual Design</p>
+      </a>
+      <a href="https://roadmap.sh/product-manager" class="career-card" target="_blank">
+        <h3>Product Manager</h3>
+        <p>Promote products and services in the digital space.</p>
+        <p>Key Skills: Critical Thinking, Problem Solving </p>
+      </a>
+      <a href="https://roadmap.sh/android" class="career-card" target="_blank">
+        <h3>Mobile Development</h3>
+        <p>Build innovative mobile applications for iOS and Android platforms.</p>
+        <p>Key Skills: App Development, UI/UX, Cross-platform Development</p>
+      </a>
+      <a href="https://roadmap.sh/cyber-security" class="career-card" target="_blank">
+        <h3>Cybersecurity</h3>
+        <p>Protect systems and data from digital threats.</p>
+        <p>Key Skills: Network Security, Ethical Hacking, Risk Analysis</p>
+      </a>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="{{ url_for('home') }}#recommendation" class="btn">Get Personalized Recommendations</a>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2>Explore Skills</h2>
+    <div class="skills-grid">
+      <a href="https://www.w3schools.com/python/" class="skill-card" target="_blank">
+        <h3>Python</h3>
+        <p>A versatile programming language perfect for beginners and experts alike.</p>
+      </a>
+      <a href="https://www.w3schools.com/java/" class="skill-card" target="_blank">
+        <h3>Java</h3>
+        <p>Object-oriented programming language used in enterprise applications.</p>
+      </a>
+      <a href="https://www.w3schools.com/c/" class="skill-card" target="_blank">
+        <h3>C</h3>
+        <p>Fundamental programming language for system programming.</p>
+      </a>
+      <a href="https://www.w3schools.com/cpp/" class="skill-card" target="_blank">
+        <h3>C++</h3>
+        <p>Powerful language for high-performance applications.</p>
+      </a>
+      <a href="https://www.w3schools.com/html/" class="skill-card" target="_blank">
+        <h3>HTML</h3>
+        <p>The standard markup language for creating web pages.</p>
+      </a>
+      <a href="https://www.w3schools.com/css/" class="skill-card" target="_blank">
+        <h3>CSS</h3>
+        <p>Style sheet language that brings life to web pages.</p>
+      </a>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://www.w3schools.com" class="btn" target="_blank">Search More Skills</a>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    .success-message {
+      background-color: rgba(0, 200, 0, 0.1);
+      color: #006400;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <ul>
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('explore') }}">Explore</a></li>
+    <li><a href="{{ url_for('about') }}">About</a></li>
+    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="contact-section">
+  <div class="contact-container">
+    <h2>Get in Touch</h2>
+    {% if request.args.get('success') %}
+    <div class="success-message">
+      Thank you for your message! We'll get back to you soon.
+    </div>
+    {% endif %}
+    <div class="contact-content">
+      <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <div class="info-item">
+          <h3>Email</h3>
+          <p>contact@careercompass.com</p>
+        </div>
+        <div class="info-item">
+          <h3>Phone</h3>
+          <p>+91 2300054567</p>
+        </div>
+        <div class="info-item">
+          <h3>Follow Us</h3>
+          <p>Stay connected on social media for career tips and updates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

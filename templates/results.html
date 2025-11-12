@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Recommendation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding: 40px;
+            margin: 0;
+            color: #fff;
+            background:linear-gradient(to right, #330020, #050035, #1d003e);
+        }
+
+        .result-box {
+            background: linear-gradient(to right, #c1e8f7, #92ede9, #91f0cf);
+            border-radius: 90%;
+            padding: 60px 40px;
+            margin: auto;
+            max-width: 500px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #000000;
+            font-size: 28px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #000000;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .meta {
+            color: #000000;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .skills-list {
+            font-family: monospace;
+            color: #000000;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #bfece0;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #005d5e;
+            color: #ffffff;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #006c62;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h2>Based on Your Profile...</h2>
+        <p class="meta">Your skills: <span class="skills-list">{{ user_skills }}</span></p>
+        <p class="meta">Your interests: <span class="skills-list">{{ user_interests }}</span></p>
+        <p class="meta"><strong>We Recommend</strong></p>
+        <h1>{{ career }}</h1>
+    </div>
+    <a href="{{ url_for('home') }}#recommendation">Try Again</a>
+</body>
+</html>
