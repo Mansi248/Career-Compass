@@ -237,23 +237,30 @@ body {
 
 .contact-section {
     background: linear-gradient(to right, #a1deff, #c2fff4, #72f1ff);
-    padding: 120px 20px 80px;
+    min-height: calc(120vh - 70px); /* fill viewport minus navbar height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
 }
 
 .contact-container {
-    max-width: 1200px;
+    max-width: 900px;
+    width: 100%;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
-    padding: 40px;
+    padding: 60px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 0;
 }
 
 .contact-form {
@@ -263,15 +270,57 @@ body {
 }
 
 .info-item {
-    background: rgba(2, 144, 157, 0.1);
-    padding: 25px;
+    background: rgba(2, 144, 157, 0.08);
+    padding: 30px 40px;
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 640px;
 }
 
 .info-item:hover {
     transform: translateY(-5px);
+}
+
+/* Centered contact info helpers and animation */
+.contact-info--center {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-email {
+    padding: 28px 36px;
+    max-width: 640px;
+}
+
+.contact-email__title {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: #02909d;
+}
+
+.contact-email__address {
+    font-size: 1.25rem;
+}
+
+.contact-email__link {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* small fade-in for the contact card */
+.fade-in {
+    animation: fadeInUp 420ms ease both;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Explore Section Styles */
