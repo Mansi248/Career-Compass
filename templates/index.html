@@ -91,8 +91,21 @@
   </div>
 </section>
 <script>
-  new Choices('#skills', { removeItemButton: true, searchEnabled: true });
-  new Choices('#interests', { removeItemButton: true, searchEnabled: true });
+  const skillsSelect = new Choices('#skills', { removeItemButton: true, searchEnabled: true });
+  const interestsSelect = new Choices('#interests', { removeItemButton: true, searchEnabled: true });
+
+  document.querySelector('.career-form').addEventListener('submit', function (e) {
+    // Sync Choices selections back to native <select> before submission
+    const syncChoices = (choicesInstance, selectElement) => {
+      const selected = choicesInstance.getValue(true); // array of selected values
+      for (let option of selectElement.options) {
+        option.selected = selected.includes(option.value);
+      }
+    };
+
+    syncChoices(skillsSelect, document.getElementById('skills'));
+    syncChoices(interestsSelect, document.getElementById('interests'));
+  });
 </script>
 </body>
 </html>
