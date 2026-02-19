@@ -2,6 +2,8 @@
 
 A dynamic web application that recommends personalized career based on user inputs such as interests, skills, and academic background. Built using machine learning algorithms and deployed with a responsive front-end for public access.
 
+## Live demo
+link: https://compass.pythonanywhere.com
 
 ## 📂 Features
 - 🔍 Accepts user inputs: interests, skills, academic degree
