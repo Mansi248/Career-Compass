@@ -10,25 +10,69 @@ body {
     margin: 0;
 }
 
+
 /* Navbar Styles */
 .navbar {
-    position: sticky;
+    position: fixed; /* Changed from sticky to fixed */
     top: 0;
-    z-index: 50;
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent */
-    backdrop-filter: blur(10px); /* The "Glass" effect */
-    border-bottom: 1px solid #e5e7eb;
-}
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Higher z-index to stay on top */
+    background: rgba(0, 38, 31, 0.693); /* Same color */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lightened for dark theme */
+    height: 70px;
 }
 
-.navbar a:hover {
-    color: #91fff8;
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Pushes Logo Left, Burger Right */
+    align-items: center;
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+/* --- BURGER ICON ALIGNMENT --- */
+#menu-toggle, .hamburger { display: none; }
+
+/* Base Logo Style - Single Color */
+
+.nav-logo {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.5px solid rgba(183, 255, 248, 0.2);
+    opacity: 0.3;
+    filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.3));
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    opacity: 1;
+    transform: rotate(15deg);
+    filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.5));
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s;
 }
 
 /* Button Styles */
@@ -156,41 +200,63 @@ body {
 }
 
 
-/* About Section Styles */
+/* --- MODERN DARK GLASS ABOUT SECTION --- */
+
 .about-section {
-    background: linear-gradient(to right, #002e33, #003532, #002e3e);
-    color: white;
-    padding: 80px 20px;
+    /* Keep your deep dark colors but as a smoother gradient */
+    background: radial-gradient(circle at top left, #002e33, #001a1d);
+    padding: 100px 20px;
     text-align: center;
-    min-height: 100vh;
 }
 
 .about-section h2 {
-    color: azure;
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-shadow: 0 0 20px rgba(127, 232, 225, 0.3); /* Subtle mint glow */
 }
 
-.about-section h3 {
-    color: #7fe8e1;
-}
-
-.about-grid, .features {
+.about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.about-card, .feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border: 1px solid #f3f4f6;
+.about-card {
+    /* DARK GLASS: Semi-transparent black/teal */
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    padding: 3rem 2rem;
+    border-radius: 20px;
+
+    /* MINT BORDER: This is the secret to the modern look */
+    border: 1px solid rgba(127, 232, 225, 0.1);
+
+    transition: all 0.3s ease;
 }
 
-.about-card:hover, .feature-card:hover {
-    transform: translateY(-5px);
+.about-card:hover {
+    transform: translateY(-10px);
+    /* Glows mint when you hover */
+    border-color: rgba(127, 232, 225, 0.5);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.about-card h3 {
+    color: #7fe8e1; /* Your signature Mint/Cyan color */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: #cbd5e1; /* Soft light gray text - much better than pure white */
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 /* Contact Section Styles */
@@ -293,7 +359,7 @@ body {
 }
 
 .contact-phone__number {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
 }
 
 .contact-phone__link {
@@ -374,11 +440,42 @@ h3 {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .navbar ul {
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
+    .hamburger {
+        display: block;
+        order: 2;
+        cursor: pointer;
     }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+    }
+
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        position: absolute;
+        top: 70px; /* Matches navbar height */
+        left: 0;
+        width: 100%;
+        background: rgba(0, 77, 77, 0.95);
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        display: flex; /* Shows menu when burger is clicked */
+    }
+
+    .nav-links a {
+        padding: 15px;
+        margin-left: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
 
     .circle {
         width: 300px;
@@ -392,6 +489,10 @@ h3 {
 
     .parisienne {
         font-size: 2.2rem;
+    }
+
+    .contact-phone__number {
+    font-size: 0.8rem;
     }
 
     .contact-content,
