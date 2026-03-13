@@ -11,29 +11,40 @@
   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <style>
-    .bg {
-      background:  linear-gradient(rgba(90, 255, 241, 0.323), rgba(70, 255, 230, 0.364)), url("{{ url_for('static', filename='ocean.png') }}") center/cover no-repeat;
-    }
     .circle {
       background: linear-gradient(rgba(0, 53, 61, 0.809), rgba(0, 0, 0, 0.824)), url("{{ url_for('static', filename='compass.png') }}") center/cover no-repeat;
     }
   </style>
 </head>
-<nav class="navbar">
-  <ul>
-    <li><a href="{{ url_for('home') }}">Home</a></li>
-    <li><a href="{{ url_for('explore') }}">Explore</a></li>
-    <li><a href="{{ url_for('about') }}">About</a></li>
-    <li><a href="{{ url_for('contact') }}">Contact</a></li>
-  </ul>
-</nav>
-<body>
-  <main class="bg">
-    <div class="circle">
-      <h1>CAREER<span class="parisienne">Compass</span></h1>
-      <a href="#recommendation" class="btn">Start Exploring</a>
-    </div>
-  </main>
+<body class="home-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+            <img src="{{ url_for('static', filename='compass.png') }}" alt="Compass Logo" class="nav-logo">
+            </a>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/explore">Explore</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/register" class="register-link">Register</a>
+            </div>
+        </div>
+    </nav>
+    <main class="bg">
+        <div class="circle">
+          <h1>CAREER<span class="parisienne">Compass</span></h1>
+          <a href="#recommendation" class="btn">Start Exploring</a>
+        </div>
+    </main>
 
     <section id="about" class="about-section">
     <div class="overlay">
@@ -52,6 +63,32 @@
           <p>Get data-driven career guidance that considers your complete profile and matches you with promising opportunities.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container">
+        <h2>Professional Tools</h2>
+
+        <div class="about-grid">
+            <a href="{{ url_for('create_resume') }}" style="text-decoration: none;">
+                <div class="about-card">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">📄</div>
+                    <h3>Resume Builder</h3>
+                    <p>Create a professional "John Doe" style resume and save it to your personal history. Access it anytime, anywhere.</p>
+                    <span style="color: #7fe8e1; font-weight: bold; margin-top: 15px; display: inline-block;">Start Building →</span>
+                </div>
+            </a>
+
+            <a href="/history" style="text-decoration: none;">
+                <div class="career-card">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">📂</div>
+                    <h3>My History</h3>
+                    <p>Manage your saved resumes. View, edit, or download your previous versions in a single click.</p>
+                    <span style="color: #7fe8e1; font-weight: bold; margin-top: 15px; display: inline-block;">View History →</span>
+                </div>
+            </a>
+        </div>
     </div>
   </section>
 
