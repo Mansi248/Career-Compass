@@ -5,45 +5,59 @@
     <title>Your Recommendation</title>
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            text-align: center;
-            padding: 40px;
-            margin: 0;
-            color: #fff;
-            background:linear-gradient(to right, #330020, #050035, #1d003e);
-        }
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 40px;
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(
+        to bottom,
+        rgba(0, 253, 240, 0.406),  /* Light shade at top */
+        rgba(0, 75, 72, 0.532),
+        rgba(0, 0, 0.775) /* Dark shade at bottom */
+        ),
+        url('/static/ocean.png');
+        background-size: cover;        /* Stretches image to fill */
+        background-attachment: fixed;  /* Keeps it still when scrolling */
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .result-box {
-            background: linear-gradient(to right, #c1e8f7, #92ede9, #91f0cf);
-            border-radius: 90%;
-            padding: 60px 40px;
-            margin: auto;
-            max-width: 500px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
+    .result-box {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Soft glass border */
+        border-radius: 30px;
+        padding: 60px 40px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
 
         h1 {
-            color: #000000;
+            color: #ffffff;
             font-size: 28px;
             margin-top: 30px;
         }
 
         h2 {
-            color: #000000;
+            color: #ffffff;
             font-size: 22px;
             margin-bottom: 20px;
         }
 
         .meta {
-            color: #000000;
+            color: #ffffff;
             margin-bottom: 12px;
             font-size: 16px;
         }
 
         .skills-list {
             font-family: monospace;
-            color: #000000;
+            color: #ffffff;
         }
 
         a {
@@ -51,7 +65,7 @@
             margin-top: 30px;
             padding: 12px 24px;
             background-color: #bfece0;
-            color: #000000;
+            color: rgba(2, 48, 45);
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
