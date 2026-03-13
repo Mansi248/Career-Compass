@@ -16,7 +16,6 @@ link: https://compass.pythonanywhere.com
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Flask (Python)  
 - **ML Libraries:** Scikit-learn, Pandas  
-- **Deployment:** Render
 
 ## 📦 Installation
 
