@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Resume - Career Compass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <img src="{{ url_for('static', filename='compass.png') }}" alt="Compass Logo" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/history">History</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+      <div class="contact-container">
+        <h2>Resume Details</h2>
+        <form method="POST" action="/save_resume" style="width: 100%; max-width: 800px; margin: 0 auto; text-align: left;">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="info-item">
+                    <h3 class="contact-phone__title">Full Name</h3>
+                    <input type="text" name="full_name" placeholder="JOHN DOE" required style="width: 100%; padding: 10px;">
+                </div>
+                <div class="info-item">
+                    <h3 class="contact-phone__title">Resume Title (for your history)</h3>
+                    <input type="text" name="resume_title" placeholder="Mechanical Resume" required style="width: 100%; padding: 10px;">
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                <div class="info-item">
+                    <h3 class="contact-phone__title">Phone</h3>
+                    <input type="text" name="phone" placeholder="555-555-5555" style="width: 100%; padding: 10px;">
+                </div>
+                <div class="info-item">
+                    <h3 class="contact-phone__title">City, State</h3>
+                    <input type="text" name="city" placeholder="Kanpur, UP" style="width: 100%; padding: 10px;">
+                </div>
+                <div class="info-item">
+                    <h3 class="contact-phone__title">Email</h3>
+                    <input type="email" name="email" placeholder="john@example.com" style="width: 100%; padding: 10px;">
+                </div>
+            </div>
+
+            <div class="info-item" style="margin-bottom: 20px;">
+                <h3 class="contact-phone__title">Professional Summary</h3>
+                <textarea name="summary" rows="3" style="width: 100%; padding: 10px;"></textarea>
+            </div>
+
+            <div style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="margin-top: 0;">Experience</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <input type="text" name="job_title" placeholder="Job Title" style="padding: 10px;">
+                    <input type="text" name="job_date" placeholder="June 2017 - Present" style="padding: 10px;">
+                    <input type="text" name="company" placeholder="Company Name" style="padding: 10px;">
+                </div>
+                <h3 class="contact-phone__title" style="margin-top: 10px;">Key Responsibilities (one per line)</h3>
+                <textarea name="experience" rows="5" placeholder="• Led the team&#10;• Managed inventory" style="width: 100%; padding: 10px;"></textarea>
+            </div>
+
+            <div style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="margin-top: 0;">Education</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <input type="text" name="university" placeholder="University Name" style="padding: 10px;">
+                    <input type="text" name="grad_date" placeholder="May 2026" style="padding: 10px;">
+                    <input type="text" name="degree" placeholder="BCA - Computer Science" style="padding: 10px; grid-column: span 2;">
+                </div>
+            </div>
+
+            <div class="info-item" style="margin-bottom: 20px;">
+                <h3 class="contact-phone__title">Skills</h3>
+                <input type="text" name="skills" placeholder="Python, SQL, Canva..." style="width: 100%; padding: 10px;">
+            </div>
+
+            <button type="submit" class="contact-phone__link" style="width: 100%; background: #007bff; color: white; border: none; padding: 15px;">
+                Save & Generate John Doe Resume
+            </button>
+        </form>
+      </div>
+    </section>
+</body>
+</html>
