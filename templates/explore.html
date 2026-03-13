@@ -13,14 +13,27 @@
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="{{ url_for('home') }}">Home</a></li>
-      <li><a href="{{ url_for('explore') }}">Explore</a></li>
-      <li><a href="{{ url_for('about') }}">About</a></li>
-      <li><a href="{{ url_for('contact') }}">Contact</a></li>
-    </ul>
-  </nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+            <img src="{{ url_for('static', filename='compass.png') }}" alt="Compass Logo" class="nav-logo">
+            </a>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/explore">Explore</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
   <section class="career-section">
     <h2>Explore Career Paths</h2>
     <div class="career-grid">
