@@ -6,28 +6,46 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 253, 240, 0.406),  /* Light shade at top */
+        rgba(0, 75, 72, 0.532),
+        rgba(0, 0, 0.775) /* Dark shade at bottom */
+    ),
+    url('/static/ocean.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
+label {
+    color: #7fe8e1;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
 
 /* Navbar Styles */
 .navbar {
-    position: fixed; /* Changed from sticky to fixed */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000; /* Higher z-index to stay on top */
-    background: rgba(0, 38, 31, 0.693); /* Same color */
+    background: rgba(0, 38, 31, 0.693);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lightened for dark theme */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     height: 70px;
 }
 
 .nav-container {
     display: flex;
-    justify-content: space-between; /* Pushes Logo Left, Burger Right */
+    justify-content: space-between; 
     align-items: center;
     padding: 0 5%;
     max-width: 1200px;
@@ -35,7 +53,18 @@ body {
     height: 100%;
 }
 
-/* --- BURGER ICON ALIGNMENT --- */
+.register-link {
+    background-color: #2b746a;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.register-link:hover {
+    background-color: #3ef0de;
+}
+
 #menu-toggle, .hamburger { display: none; }
 
 /* Base Logo Style - Single Color */
@@ -171,7 +200,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(0, 0, 0);
+  background: transparent;
   filter: blur(8px);
   transform: scale(1.1); /* prevents edge clipping */
   z-index: 1;
@@ -183,9 +212,9 @@ body {
   text-align: center;
   color: rgb(255, 255, 255);
   padding: 40px;
+  background: transparent;
   max-width: 600px;
   margin: 0 auto;
-  background: rgb(0, 0, 0);
   border-radius: 12px;
 }
 
@@ -203,8 +232,7 @@ body {
 /* --- MODERN DARK GLASS ABOUT SECTION --- */
 
 .about-section {
-    /* Keep your deep dark colors but as a smoother gradient */
-    background: radial-gradient(circle at top left, #002e33, #001a1d);
+    background: transparent;
     padding: 100px 20px;
     text-align: center;
 }
@@ -215,7 +243,6 @@ body {
     margin-bottom: 50px;
     text-shadow: 0 0 20px rgba(127, 232, 225, 0.3); /* Subtle mint glow */
 }
-
 .about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -224,41 +251,46 @@ body {
     margin: 0 auto;
 }
 
-.about-card {
+.about-card, .career-card, .skill-card {
     /* DARK GLASS: Semi-transparent black/teal */
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-
     padding: 3rem 2rem;
     border-radius: 20px;
-
-    /* MINT BORDER: This is the secret to the modern look */
     border: 1px solid rgba(127, 232, 225, 0.1);
-
     transition: all 0.3s ease;
 }
 
-.about-card:hover {
+.about-card:hover, .career-card:hover, .skill-card:hover {
     transform: translateY(-10px);
-    /* Glows mint when you hover */
     border-color: rgba(127, 232, 225, 0.5);
     background: rgba(0, 0, 0, 0.4);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.about-card h3 {
-    color: #7fe8e1; /* Your signature Mint/Cyan color */
+.about-card, .career-card, .skill-card h3 {
+    color: #ffffff;
+    font-weight: bold;
     font-size: 1.5rem;
     margin-bottom: 15px;
+    text-decoration: none !important;
 }
 
-.about-card p {
-    color: #cbd5e1; /* Soft light gray text - much better than pure white */
+.about-card, .career-card, .skill-card p {
+    color: #cbd5e1; 
     line-height: 1.7;
     font-size: 1rem;
+    text-decoration: none !important;
 }
 
+.about-grid a {
+    text-decoration: none !important;
+}
+
+.about-card h3, .career-card h3 {
+    text-decoration: none !important;
+}
 /* Contact Section Styles */
 .center-contact {
   display: flex;
@@ -272,7 +304,7 @@ body {
 .center-contact h2 {
   margin-bottom: 20px;
   font-size: 2rem;
-  color: #008080; /* Teal tone */
+  color: #008080; 
 }
 
 .center-contact .btn {
@@ -291,8 +323,8 @@ body {
 }
 
 .contact-section {
-    background: linear-gradient(to right, #a1deff, #c2fff4, #72f1ff);
-    min-height: calc(120vh - 70px); /* fill viewport minus navbar height */
+    background: transparent;
+    min-height: calc(120vh - 70px); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,9 +335,12 @@ body {
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Semi-transparent white */
+    backdrop-filter: blur(5px); ;
     border-radius: 20px;
     padding: 60px;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
@@ -325,7 +360,8 @@ body {
 }
 
 .info-item {
-    background: rgba(2, 144, 157, 0.08);
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Semi-transparent white */
+    backdrop-filter: blur(5px);;
     padding: 30px 40px;
     border-radius: 12px;
     text-align: center;
@@ -338,7 +374,6 @@ body {
     transform: translateY(-5px);
 }
 
-/* Centered contact info helpers and animation */
 .contact-info--center {
     display: flex;
     flex-direction: column;
@@ -355,7 +390,6 @@ body {
 .contact-phone__title {
     font-size: 1.6rem;
     margin-bottom: 8px;
-    color: #02909d;
 }
 
 .contact-phone__number {
@@ -363,12 +397,11 @@ body {
 }
 
 .contact-phone__link {
-    color: inherit;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
 }
 
-/* small fade-in for the contact card */
 .fade-in {
     animation: fadeInUp 420ms ease both;
 }
@@ -384,11 +417,11 @@ body {
 }
 
 .career-section {
-    background: linear-gradient(to right, #a1deff, #c2fff4, #72f1ff);
+    background: transparent;
 }
 
 .skills-section {
-    background: linear-gradient(to right, #a1deff, #c2fff4, #72f1ff);
+    background: transparent;
 }
 
 .career-grid, .skills-grid {
@@ -402,22 +435,6 @@ body {
     margin-right: auto;
 }
 
-.career-card, .skill-card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.career-card:hover, .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 1);
-}
 
 /* Typography */
 h1 {
@@ -427,15 +444,69 @@ h1 {
 }
 
 h2 {
-    font-size: 2rem;
-    color: #02909d;
+    font-size: 2.5rem;
+    color: #ffffff;
     margin-bottom: 30px;
     text-align: center;
 }
 
 h3 {
-    color: #02909d;
+    color: #ffffff;
     margin-bottom: 15px;
+}
+
+.choices__inner {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Semi-transparent white */
+    backdrop-filter: blur(5px); 
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 20px !important; /* Makes it rounded */
+    color: white !important; /* Ensures input text is visible */
+}
+
+.choices__list--dropdown {
+    background-color: rgba(0, 40, 60, 0.9) !important; 
+    color: white;
+    border-radius: 15px;
+    border: 1px solid #39FF14;
+}
+
+.choices__input {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+/* The main dropdown container */
+.choices__list--dropdown {
+    background-color: rgba(0, 43, 54, 0.9) !important; 
+    border: 1px solid #39FF14 !important;          
+    border-radius: 0 0 15px 15px !important;   
+    color: white !important;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: #616161 !important;
+}
+
+/* Targets the standard Education dropdown */
+select#degree {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 15px !important;
+    color: white !important;
+    padding: 12px;
+}
+
+#degree option {
+    background-color: #003a4d !important; /* Dark teal/ocean color */
+    color: #ffffff;
+    padding: 10px;
+}
+
+/* Removes the white background on hover/focus in some browsers */
+#degree:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
 }
 
 /* Media Queries */
@@ -467,7 +538,7 @@ h3 {
     }
 
     #menu-toggle:checked ~ .nav-links {
-        display: flex; /* Shows menu when burger is clicked */
+        display: flex; 
     }
 
     .nav-links a {
@@ -501,10 +572,6 @@ h3 {
     .career-grid {
         grid-template-columns: 1fr;
         gap: 20px;
-    }
-
-    h2 {
-        font-size: 1.6rem;
     }
 
     .contact-section,
