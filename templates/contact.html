@@ -8,30 +8,43 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-<nav class="navbar">
-  <ul>
-    <li><a href="{{ url_for('home') }}">Home</a></li>
-    <li><a href="{{ url_for('explore') }}">Explore</a></li>
-    <li><a href="{{ url_for('about') }}">About</a></li>
-    <li><a href="{{ url_for('contact') }}">Contact</a></li>
-  </ul>
-</nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+            <img src="{{ url_for('static', filename='compass.png') }}" alt="Compass Logo" class="nav-logo">
+            </a>
 
-<section class="contact-section">
-  <div class="contact-container">
-    <h2>Get in Touch</h2>
-    <div class="contact-content">
-      <div class="contact-info contact-info--center">
-        <div class="info-item contact-phone fade-in">
-          <h3 class="contact-phone__title">Mobile</h3>
-          <p class="contact-phone__number">
-            <a class="contact-phone__link" href="tel:+919501787441">+91 95017 87441</a>
-          </p>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/explore">Explore</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+      <div class="contact-container">
+        <h2>Get in Touch</h2>
+        <div class="contact-content">
+          <div class="contact-info contact-info--center">
+            <div class="info-item contact-phone fade-in">
+              <h3 class="contact-phone__title">Email</h3>
+              <p class="contact-phone__number">
+                <a class="contact-phone__link" href="mailto:careercompass0202@gmail.com">careercompass0202@gmail.com</a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 </body>
 </html>
 
