@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.full_name }} - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            background-color: #f4f4f4; 
+            padding: 30px; 
+            color: #333;
+        }
+
+        .resume-paper {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 60px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            line-height: 1.4;
+        }
+
+        /* Header Styling */
+        .header { text-align: center; margin-bottom: 25px; }
+        .header h1 { 
+            margin: 0; 
+            font-size: 28pt; 
+            font-weight: normal; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .contact-info { font-size: 11pt; margin-top: 5px; }
+
+        /* Section Styling */
+        .section-title { 
+            font-size: 12pt; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid #ccc; 
+            margin-top: 25px; 
+            margin-bottom: 10px;
+            padding-bottom: 2px;
+        }
+
+        .content { font-size: 11pt; margin-bottom: 15px; }
+
+        /* Experience Layout */
+        .entry-header { display: flex; justify-content: space-between; font-weight: bold; }
+        .entry-sub { font-style: italic; margin-bottom: 5px; }
+        
+        ul { margin-top: 5px; padding-left: 20px; }
+        li { margin-bottom: 3px; }
+
+        .no-print { text-align: center; margin-bottom: 20px; }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .resume-paper { box-shadow: none; margin: 0; padding: 40px; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <button onclick="window.print()">Download as PDF</button>
+    </div>
+
+    <div class="resume-paper">
+        <div class="header">
+            <h1>{{ data.full_name }}</h1>
+            <div class="contact-info">
+                {{ data.phone }} • {{ data.city }} • <span style="color: blue; text-decoration: underline;">{{ data.email }}</span>
+            </div>
+        </div>
+
+        <div class="section-title">Summary</div>
+        <div class="content">
+            {{ data.summary }}
+        </div>
+
+        <div class="section-title">Experience</div>
+        <div class="content">
+            <div class="entry-header">
+                <span>{{ data.job_title }}</span>
+                <span>{{ data.job_date }}</span>
+            </div>
+            <div class="entry-sub">{{ data.company }} | {{ data.city }}</div>
+            <ul>
+                {% for bullet in data.experience_bullets %}
+                <li>{{ bullet }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section-title">Education</div>
+        <div class="content">
+            <div class="entry-header">
+                <span>{{ data.university }}</span>
+                <span>{{ data.grad_date }}</span>
+            </div>
+            <div>{{ data.degree }}</div>
+        </div>
+
+        <div class="section-title">Skills</div>
+        <div class="content">
+            {{ data.skills }}
+        </div>
+    </div>
+</body>
+</html>
