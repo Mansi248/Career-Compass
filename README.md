@@ -10,12 +10,13 @@ link: https://compass.pythonanywhere.com
 - 🧠 Uses ML algorithms (KNN, Decision Tree) to classify user profiles
 - 🎯 Suggests the most suitable career for user
 - 💡 Clean, responsive UI for seamless interaction
-- 🌐 Deployed using Render for public access
+- 🌐 Useful for generating and storing resumes
 
 ## 🛠️ Tech Stack
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Flask (Python)  
-- **ML Libraries:** Scikit-learn, Pandas  
+- **ML Libraries:** Scikit-learn, Pandas
+- **Deployed on:** PythonAnywhere
 
 ## 📦 Installation
 
