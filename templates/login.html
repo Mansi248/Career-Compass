@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Career Compass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <img src="{{ url_for('static', filename='compass.png') }}" alt="Compass Logo" class="nav-logo">
+            </a>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/explore">Explore</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/register" class="login-btn">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+      <div class="contact-container">
+        <h2>Welcome Back</h2>
+        <div class="contact-content">
+          <div class="contact-info contact-info--center fade-in">
+            
+            <form method="POST" action="/login" style="width: 100%; max-width: 400px; margin: 0 auto;">
+                <div class="info-item" style="margin-bottom: 20px;">
+                    <h3 class="contact-phone__title">Username</h3>
+                    <input type="text" name="username" placeholder="Enter your username" required 
+                           style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: 'Poppins';">
+                </div>
+
+                <div class="info-item" style="margin-bottom: 20px;">
+                    <h3 class="contact-phone__title">Password</h3>
+                    <input type="password" name="password" placeholder="Enter your password" required 
+                           style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: 'Poppins';">
+                </div>
+
+                <button type="submit" class="contact-phone__link" 
+                        style="background: none; border: 2px solid #28a745; padding: 10px 30px; cursor: pointer; font-weight: 600; color: #28a745;">
+                    Login
+                </button>
+            </form>
+
+            <p style="margin-top: 20px;">New to Career Compass? <a href="/register" style="color: #007bff; text-decoration: none;">Register here</a></p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>
